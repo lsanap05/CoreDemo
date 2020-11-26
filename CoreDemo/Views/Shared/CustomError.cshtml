@@ -1,0 +1,19 @@
+﻿
+@{ ViewData["Title"] = "Error"; }
+
+<h1 class="text-danger">Error.</h1>
+<br>
+
+<h2 class="text-danger">An error occurred while processing your request.</h2>
+<br>
+<h2>Error Request Id is @ViewData["RequestId"] Controller</h2>
+<br>
+<h2>Error Occured in @ViewData["ControllerName"] Controller</h2>
+<br>
+<h2>The Action Method causes exception is @ViewData["ActionName"] </h2>
+<br>
+<h2>The Error Message is @ViewData["ErrorMessage"]</h2>
+<br>
+<h2> Date Time is @ViewData["DateTime"]</h2>
+<br>
+<a asp-action='@ViewData["ActionName"]' asp-controller='@ViewData["ControllerName"]'>Go Back</a>
