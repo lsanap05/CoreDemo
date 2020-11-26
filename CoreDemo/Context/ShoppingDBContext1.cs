@@ -35,3 +35,4 @@ namespace CoreDemo.Context
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
     }
 }
+//
