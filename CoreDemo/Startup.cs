@@ -73,6 +73,11 @@ namespace CoreDemo
             services.AddScoped<IRepository<Category, int>, CategoryRepository>();
             services.AddScoped<IRepository<Product, int>, ProductRepository>();
 
+            // Register Teacher, Student, and Parent Repositories
+            services.AddScoped<ITeacherRepository, TeacherRepository>();
+            services.AddScoped<IStudentRepository, StudentRepository>();
+            services.AddScoped<IParentRepository, ParentRepository>();
+
             //Define session 
             // session will be stored in cache memmory
             services.AddDistributedMemoryCache();
