@@ -11,8 +11,10 @@ namespace DAL.DBContext
     public class ShoppingDbContext : DbContext
     {
         public DbSet<Category> Categories { get;set; }
-
-        public DbSet<Product> products { get; set; }
+        public DbSet<Product> Products { get; set; } // Corrected casing
+        public DbSet<Teacher> Teachers { get; set; }
+        public DbSet<Student> Students { get; set; }
+        public DbSet<Parent> Parents { get; set; }
 
         // read the Connection string from the appSettings.json
         // Register the  ShoppingDbContext class in DI Container of the Application
@@ -34,8 +36,12 @@ namespace DAL.DBContext
             modelBuilder.Entity<Product>()
                 .HasOne(p => p.Category) // hasone category for each product
                 .WithMany(c => c.Products) // one categoey contains multiple products
-                .HasForeignKey(p => p.CategoryRowId); // Foreign Key Relationship 
-        }
+                .HasForeignKey(p => p.CategoryRowId); // Foreign Key Relationship
 
+            // Optionally add configurations for new entities here if needed
+            // e.g., modelBuilder.Entity<Teacher>().ToTable("Teachers");
+
+            base.OnModelCreating(modelBuilder); // Ensure base method is called
+        }
     }
 }
